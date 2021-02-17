@@ -7,7 +7,7 @@ int main()
 
   while (1) { // Infinite while loop
 
-    fputs("Select which shape you want to print (Triangle = t, Square = s, Chars = c) or 'q' to quit\n> ", stdout);
+    fputs("Select which shape you want to print (Arrow = a, Triangle = t, Square = s, Chars 11x16 = c, Chars 8x12 = d) or 'q' to quit\n> ", stdout);
     fflush(stdout);		/* stdout only flushes automatically on \n */
     int c;
     while ((c = getchar()) == '\n'); /* ignore newlines */
@@ -16,6 +16,11 @@ int main()
 
     // Given the user answer, select which method to call
     switch (c) {
+    case 'a':
+      puts("You selected arrow:");
+      print_triangle(5,7);
+      print_square(10,5);
+      break;
     case 't':
       puts("You selected triangle:");
       print_triangle(5, 7);
@@ -28,6 +33,11 @@ int main()
       puts("You selected chars:");
       for (char c = 'A'; c < 'D'; c++)
 	print_char_11x16(c);
+      break;
+    case 'd':
+      puts ("You selected chars:");
+      for (char c = 'A'; c < 'F'; c++)
+        print_char_8x12(c);
       break;
     case 'q':
       puts("Bye!");
